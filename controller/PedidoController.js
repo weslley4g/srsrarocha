@@ -69,9 +69,9 @@ var nomeArray = [];
 var idPedido = [];
 
 function getValues(elemento) {
-  
+
   elementoID = elemento.id;
-  
+
   // buscando os elementos no HTML
   var pedidoElement = document.getElementById(elemento.id);
   var descElement = document.getElementById(elemento.id + "D");
@@ -86,7 +86,7 @@ function getValues(elemento) {
     idPedido.push(elemento.id);
 
   } else {
-    
+
     checkOutZerado(elementoID);
   }
   // listar os pedidos feitos
@@ -298,6 +298,7 @@ function MenosPedidos(ID) {
   var text = document.createTextNode(qtdPedido);
   qtd.innerHTML = "";
   qtd.appendChild(text);
+
   // atualiza a quantidade de pedidos
   var qtdPedido = 0;
   for (let index = 0; index < idPedido.length; index++) {
@@ -308,6 +309,7 @@ function MenosPedidos(ID) {
 
   var text;
   var qtdElement = document.getElementById(ID + "+");
+
 
   if (qtd.innerHTML === "1") {
     qtdElement.innerHTML = "";
@@ -326,55 +328,53 @@ function MenosPedidos(ID) {
 
   // verifica se zerou os produtos e remove a coluna
   if (TotalRS === 0) {
-    document.getElementById(ID + "SeuPedido").remove();
-  }
-  // remove pedido zerado
-  var pedidoZerado = document.getElementById(ID + "+");
-  if (pedidoZerado) {
-    if (pedidoZerado.innerHTML === "0 Pedidos" || pedidoZerado.innerHTML === null) {
-      document.getElementById(ID + "SeuPedido").remove();
+    var checkboxesT = document.getElementsByName('Pacote');
+    for (let i = 0; i < checkboxesT.length; i++) {
+      // somente nome da função, sem executar com ()
+      if (checkboxesT[i].checked) {
+        checkboxesT[i].click();
+      }
 
     }
   }
 
 
-  if (numeroPedido.innerText == 0) {
-    infoPedido.hidden = true;
-    alT.classList.remove("col-md-8");
-    alT.classList.add("col-md-12");
-  } else {
-    infoPedido.hidden = false;
-    alT.classList.remove("col-md-12");
-    alT.classList.add("col-md-8");
-  }
+
+// remove pedido zerado
+if (qtdElement.innerHTML == "0 Pedidos" ||
+  qtdElement.innerHTML == "0 Pedido" ||
+  qtdElement.innerHTML === null) {
+  var desclicar = document.getElementById(ID);
+  desclicar.click();
+
+
+}
+
+
+
+if (numeroPedido.innerText == 0) {
+  infoPedido.hidden = true;
+  alT.classList.remove("col-md-8");
+  alT.classList.add("col-md-12");
+} else {
+  infoPedido.hidden = false;
+  alT.classList.remove("col-md-12");
+  alT.classList.add("col-md-8");
+}
 }
 
 function checkOutZerado(id) {
-
-  let pedidoElement = document.getElementById(id);
-  var descElement = document.getElementById(id + "D");
-  var precoElement = document.getElementById(id + "P");
-  var nomeElement = document.getElementById(id + 'N');
-
-
-// pedidosArray
-
-//--------------------------------------------
-
+  //--------------------------------------------
   let indice = idPedido.indexOf(id);
 
-  while(indice >= 0){
+  while (indice >= 0) {
     idPedido.splice(indice, 1);
     pedidosArray.splice(indice, 1);
     descArray.splice(indice, 1);
     precoArray.splice(indice, 1);
     nomeArray.splice(indice, 1);
-    
-    indice = idPedido.indexOf(id);
-    console.log(idPedido);
+    indice = idPedido.indexOf(id);  
   }
-//--------------------------------------------
-
-
+  //--------------------------------------------
 }
 
