@@ -361,60 +361,20 @@ function checkOutZerado(id) {
 
 //--------------------------------------------
 
-  let indicePedido = pedidosArray.indexOf(pedidoElement.value);
+  let indice = idPedido.indexOf(id);
 
-  while(indicePedido >= 0){
-    pedidosArray.splice(indicePedido, 1);
-    indicePedido = pedidosArray.indexOf(pedidoElement.value);
-    console.log(pedidosArray);
+  while(indice >= 0){
+    idPedido.splice(indice, 1);
+    pedidosArray.splice(indice, 1);
+    descArray.splice(indice, 1);
+    precoArray.splice(indice, 1);
+    nomeArray.splice(indice, 1);
+    
+    indice = idPedido.indexOf(id);
+    console.log(idPedido);
   }
 //--------------------------------------------
 
-// descArray
-
-//--------------------------------------------
-  let indiceD =  descArray.indexOf(descElement.innerText);
-
-  while(indiceD >= 0){
-    descArray.splice(indiceD, 1);
-    indiceD =  descArray.indexOf(descElement.innerText);
-  }
-//--------------------------------------------
-
-  // precoArray
-
-//--------------------------------------------
-  let indiceP = precoArray.indexOf(precoElement.innerText);
-
-  while(indiceP >= 0){
-    precoArray.splice(indiceP, 1);
-    indiceP = precoArray.indexOf(precoElement.innerText);
-  }
-//---------------------------------------------
-
-  // nomeArray
-
-//--------------------------------------------
-  let indiceN = nomeArray.indexOf(nomeElement.innerText);
-
-  while(indiceN >= 0){
-    nomeArray.splice(indiceN, 1);
-    indiceN = nomeArray.indexOf(nomeElement.innerText);
-  }
-//--------------------------------------------
-
-
-  // idPedido
-
-//--------------------------------------------
-  let indiceIdP = idPedido.indexOf(id);
-
-  while(indiceIdP >= 0){
-    idPedido.splice(indiceIdP, 1);
-      indiceIdP = idPedido.indexOf(id);
-  }
-
-//--------------------------------------------
 
 }
 
