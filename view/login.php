@@ -26,8 +26,8 @@ require_once('../conexao/conexao.php');
     <!-- Custom styles for this template -->
     <link href="../form-validation.css" rel="stylesheet">
 
-    <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -52,7 +52,29 @@ require_once('../conexao/conexao.php');
 </head>
 
 <body>
-
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">WhatsFood</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                  
+                    <li class="nav-item">
+                        <a class="nav-link " href="../"><i class="fa fa-book"></i> Cardápio</a>
+                    </li> 
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="#"  >
+                         <i class="fa fa-user"></i> Login
+                        </a>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
 
 
 <div class="limiter">

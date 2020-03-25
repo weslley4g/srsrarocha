@@ -110,6 +110,7 @@ $products = [
         </div>
 </nav>
 
+
     <div class="container">
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="./assets/img/icone2.png" alt="" width="350" height="200">
