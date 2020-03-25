@@ -1,6 +1,7 @@
 <?php
 
 $products = [
+    
     [
         "id" => "1",
         "nome" => "Combo 1.0",
