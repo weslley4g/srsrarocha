@@ -59,6 +59,11 @@ if (numeroPedido.innerText === "") {
 } else {
   infoPedido.hidden = false;
 }
+
+Number.prototype.toBrl = function () {
+  return 'R$ ' + this.toFixed(2).replace('.', ',');
+};
+
 var TotalRS;
 
 // Arrays
@@ -166,7 +171,7 @@ function listaDePedidos(elementoID) {
     // colocando os textos certo entre as tags
     h5.appendChild(qtdMais);
     h6.appendChild(nomeDoLancheText);
-    span.appendChild(valorDoLancheText);
+    span.appendChild(valorDoLancheText );
     small.appendChild(descricaoText);
     buttonMais.appendChild(sinaldeMais);
     buttonMenos.appendChild(sinaldeMenos);
@@ -202,7 +207,7 @@ function listaDePedidos(elementoID) {
 function CalculoPedido() {
   var verifica = document.getElementById("Total");
   var valorTotal = pedidosArray.reduce(function (total, numero) {
-    return total + parseInt(numero);
+    return total + parseFloat(numero);
   }, 0);
   TotalRS = valorTotal;
   if (!verifica) {
@@ -225,7 +230,12 @@ function CalculoPedido() {
     infoPedido.appendChild(divTotal);
   }
   var strongTotal = document.getElementById("valor");
-  var TotalText = document.createTextNode("R$: " + valorTotal + ",00");
+
+  
+ 
+ 
+
+  var TotalText = document.createTextNode(parseFloat(valorTotal).toBrl());
   strongTotal.innerHTML = "";
   strongTotal.appendChild(TotalText);
 

@@ -1,7 +1,24 @@
 <?php
+require_once('./conexao/conexao.php');
+
+function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=always
+    if (is_numeric($number)) { // a number
+      if (!$number) { // zero
+        $money = ($cents == 2 ? '0.00' : '0'); // output zero
+      } else { // value
+        if (floor($number) == $number) { // whole number
+          $money = number_format($number, ($cents == 2 ? 2 : 0)); // format
+        } else { // cents
+          $money = number_format(round($number, 2),($cents == 0 ? 0 : 2)); // format
+        } // integer or decimal
+      } // value
+      return 'R$: '.$money;
+    } // numeric
+  } // formatMoney
+
 
 $products = [
-    
+
     [
         "id" => "1",
         "nome" => "Combo 1.0",
@@ -34,7 +51,7 @@ $products = [
         "id" => "5",
         "nome" => "Coca-Cola",
         "desc" => "1 coca lata 250ml.",
-        "valor" => 6.00,
+        "valor" => 06.50,
         "img" => "./assets/img/cocalata.png"
     ],
 ];
@@ -52,7 +69,7 @@ $products = [
     <meta name="description" content="WhatsFood">
     <meta name="author" content="weslley">
     <meta property="og:image" content="https://pbs.twimg.com/profile_images/564976605479460865/6ZgfAF6b.png">
-
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
    
     <link rel="icon" href="./assets/img/whatsfood.png">
 
@@ -69,6 +86,29 @@ $products = [
 </head>
 
 <body class="bg-light">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">WhatsFood</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                  
+                    <li class="nav-item">
+                        <a class="nav-link " href="./"><i class="fa fa-book"></i> Cardápio</a>
+                    </li> 
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="./view/login.php"  >
+                         <i class="fa fa-user"></i> Login
+                        </a>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
 
     <div class="container">
         <div class="py-5 text-center">
@@ -168,7 +208,8 @@ $products = [
                                             <input type="checkbox"  name="Pacote" id="cb<?php echo $products[$key]['id']; ?>" value="<?php echo $products[$key]['valor'] ?>" />
                                             <label for="cb<?php echo $products[$key]['id']; ?>" id="<?php echo $products[$key]['id']; ?>L" class="label">
                                                 <img src="<?php echo $products[$key]['img'];?>" />
-                                                <p><b name="preco" id="cb<?php echo $products[$key]['id']; ?>P"> R$:<?php echo $products[$key]['valor'] . ",00"; ?></b></p>
+                                              
+                                                <p><b name="preco" id="cb<?php echo $products[$key]['id']; ?>P"> <?php echo formatMoney($products[$key]['valor'], 2); ?></b></p>
                                                 <p name="nome" id="cb<?php echo $products[$key]['id']; ?>N"><?php echo $products[$key]['nome']; ?></p>
                                                 <small name="desc" class="text-muted" id="cb<?php echo $products[$key]['id']; ?>D">
                                                 <?php echo $products[$key]['desc'];?>
