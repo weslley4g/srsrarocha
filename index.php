@@ -1,6 +1,10 @@
 <?php
 require_once('./conexao/conexao.php');
 
+$foodSelect = $Con->query("SELECT * FROM food");
+
+
+
 function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=always
     if (is_numeric($number)) { // a number
       if (!$number) { // zero
@@ -17,51 +21,14 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
   } // formatMoney
 
 
-$products = [
 
-    [
-        "id" => "1",
-        "nome" => "Combo 1.0",
-        "desc" => "descricao lanche 1",
-        "valor" => 15.00,
-        "img" => "./assets/img/hamburguerbatata.png"
-    ],
-    [
-        "id" => "2",
-        "nome" => "Artesanal monstro",
-        "desc" => " 1 hamburguer artesanal completo, pão alface ovo ...",
-        "valor" => 20.00,
-        "img" => "./assets/img/artesanal.png"
-    ],
-    [
-        "id" => "3",
-        "nome" => "X-FOME!",
-        "desc" => "1 X-tudo duplo completo, pão alface ovo ...",
-        "valor" => 20.00,
-        "img" => "./assets/img/duploxtudo.png"
-    ],
-    [
-        "id" => "4",
-        "nome" => "Devastador",
-        "desc" => "DEvastador tem tudo em multiplicação por 4..",
-        "valor" => 30.00,
-        "img" => "./assets/img/lanche.png"
-    ],
-    [
-        "id" => "5",
-        "nome" => "Coca-Cola",
-        "desc" => "1 coca lata 250ml.",
-        "valor" => 06.50,
-        "img" => "./assets/img/cocalata.png"
-    ],
-];
 
 //var_dump($products);
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -201,19 +168,18 @@ $products = [
                         <div class="album py-12 bg-light text-center" id="lanchecheck">
                             <ul class="col-md-12 ">
                                 <?php
-                                foreach ($products as $key => $value) {
-
+                                while ($row = $foodSelect->fetch_assoc()) {
                                 ?>
                                     <li>
                                         <div class="col-md-12">
-                                            <input type="checkbox"  name="Pacote" id="cb<?php echo $products[$key]['id']; ?>" value="<?php echo $products[$key]['valor'] ?>" />
-                                            <label for="cb<?php echo $products[$key]['id']; ?>" id="<?php echo $products[$key]['id']; ?>L" class="label">
-                                                <img src="<?php echo $products[$key]['img'];?>" />
+                                            <input type="checkbox"  name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
+                                            <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
+                                                <img src="<?php echo $row['img'];?>" />
                                               
-                                                <p><b name="preco" id="cb<?php echo $products[$key]['id']; ?>P"> <?php echo formatMoney($products[$key]['valor'], 2); ?></b></p>
-                                                <p name="nome" id="cb<?php echo $products[$key]['id']; ?>N"><?php echo $products[$key]['nome']; ?></p>
-                                                <small name="desc" class="text-muted" id="cb<?php echo $products[$key]['id']; ?>D">
-                                                <?php echo $products[$key]['desc'];?>
+                                                <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P"> <?php echo formatMoney($row['valor'], 2); ?></b></p>
+                                                <p name="nome" id="cb<?php echo $row['id_food']; ?>N"><?php echo $row['nome']; ?></p>
+                                                <small name="desc" class="text-muted" id="cb<?php echo $row['id_food']; ?>D">
+                                                <?php echo $row['descricao'];?>
                                                 </small>
                                             </label>
                                         </div>

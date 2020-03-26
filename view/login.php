@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -59,7 +63,7 @@
 						<a class="nav-link " href="../"><i class="fa fa-book"></i> Cardápio</a>
 					</li>
 
-					<li class="nav-item dropdown">
+					<li class="nav-item">
 						<a class="nav-link " href="#">
 							<i class="fa fa-user"></i> Login
 						</a>
@@ -80,9 +84,27 @@
 
 					</span>
 
-					<span class="login100-form-title p-b-34 p-t-27">
-						whatsfood
+					<span class="login100-form-title  p-t-27">
+					WhatsFood
 					</span>
+					<?php
+					
+				
+					if (!empty($_SESSION['msg'])  ) {
+					echo "
+					<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+						<strong>".$_SESSION['msg']."</strong>
+						 Tente novamente ou acesse o link esqueci minha senha.
+						<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+					</div>
+					";
+			    	unset($_SESSION['msg']);
+					}
+					
+					?>
+					
 
 					<div class="wrap-input100 validate-input" data-validate="Digite seu E-mail">
 						<input class="input100" type="text" name="Email" placeholder="E-mail">
@@ -107,7 +129,7 @@
 						</button>
 					</div>
 
-					<div class="text-center p-t-90">
+					<div class="text-center p-b-20 p-t-40">
 						<a class="txt1" href="#">
 							Esqueceu sua senha?
 						</a>
@@ -118,14 +140,14 @@
 	</div>
 
 
-	<div id="dropDownSelect1"></div>
+
 
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/popper.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
