@@ -174,8 +174,7 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                                         <div class="col-md-12">
                                             <input type="checkbox"  name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
                                             <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
-                                                <img src="<?php echo $row['img'];?>" />
-                                              
+                                                <img src="./assets/upload/img/food/<?php echo $row['img'];?>" />
                                                 <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P"> <?php echo formatMoney($row['valor'], 2); ?></b></p>
                                                 <p name="nome" id="cb<?php echo $row['id_food']; ?>N"><?php echo $row['nome']; ?></p>
                                                 <small name="desc" class="text-muted" id="cb<?php echo $row['id_food']; ?>D">
