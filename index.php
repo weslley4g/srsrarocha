@@ -67,7 +67,7 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                     </li> 
                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="./view/login.php"  >
+                        <a class="nav-link " href="./view/login"  >
                          <i class="fa fa-user"></i> Login
                         </a>
                         

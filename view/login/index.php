@@ -60,7 +60,7 @@ session_start();
 				<ul class="navbar-nav ml-auto">
 
 					<li class="nav-item">
-						<a class="nav-link " href="../"><i class="fa fa-book"></i> Cardápio</a>
+						<a class="nav-link " href="../../"><i class="fa fa-book"></i> Cardápio</a>
 					</li>
 
 					<li class="nav-item">
@@ -78,7 +78,7 @@ session_start();
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('https://pixelz.cc/wp-content/uploads/2018/08/hamburger-spicy-uhd-4k-wallpaper.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="../controller/loginController.php">
+				<form class="login100-form validate-form" method="POST" action="../../controller/loginController.php">
 					<span class="login100-form-logo">
 						<img src="./images/fastfood48dp.svg" alt="">
 
