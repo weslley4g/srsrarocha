@@ -1,0 +1,111 @@
+* {
+    color: #000 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+}
+
+@page {
+    margin: 100%;
+    zoom: 400px;
+    min-zoom: 150px;
+    user-zoom: 400;
+}
+
+nav,
+footer,
+button,
+form,
+.printd,
+video,
+audio,
+object,
+embed {
+    display: none !important;
+}
+
+body {
+    font: 12pt Georgia, "Times New Roman", Times, serif;
+    color: #000;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 18pt;
+}
+
+h3 {
+    font-size: 14pt;
+}
+
+h5 {
+    font-size: 30px !important;
+}
+
+#qtdPedido,
+.text-muted {
+    font-size: 30px !important;
+}
+
+a,
+a:visited {
+    text-decoration: underline;
+}
+
+a:link:after,
+a:visited:after {
+    content: " (" attr(href) ") ";
+}
+
+a:after,
+a[href^="javascript:"]:after,
+a[href^="#"]:after {
+    content: "";
+}
+
+p a {
+    word-wrap: break-word;
+}
+
+p {
+    widows: 3;
+}
+
+p {
+    orphans: 3;
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+#InfoPedido {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+    font-size: 24pt;
+    top: 10%;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex: 1;
+}
+
+.my-0 {
+    font-size: 30px !important;
+}

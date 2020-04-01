@@ -5,20 +5,21 @@ $foodSelect = $Con->query("SELECT * FROM food");
 
 
 
-function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=always
+function formatMoney($number, $cents = 1)
+{ // cents: 0=never, 1=if needed, 2=always
     if (is_numeric($number)) { // a number
-      if (!$number) { // zero
-        $money = ($cents == 2 ? '0.00' : '0'); // output zero
-      } else { // value
-        if (floor($number) == $number) { // whole number
-          $money = number_format($number, ($cents == 2 ? 2 : 0)); // format
-        } else { // cents
-          $money = number_format(round($number, 2),($cents == 0 ? 0 : 2)); // format
-        } // integer or decimal
-      } // value
-      return 'R$: '.$money;
+        if (!$number) { // zero
+            $money = ($cents == 2 ? '0.00' : '0'); // output zero
+        } else { // value
+            if (floor($number) == $number) { // whole number
+                $money = number_format($number, ($cents == 2 ? 2 : 0)); // format
+            } else { // cents
+                $money = number_format(round($number, 2), ($cents == 0 ? 0 : 2)); // format
+            } // integer or decimal
+        } // value
+        return 'R$: ' . $money;
     } // numeric
-  } // formatMoney
+} // formatMoney
 
 
 
@@ -36,13 +37,15 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
     <meta name="description" content="WhatsFood">
     <meta name="author" content="weslley">
     <meta property="og:image" content="https://pbs.twimg.com/profile_images/564976605479460865/6ZgfAF6b.png">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-   
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link rel="icon" href="./assets/img/whatsfood.png">
 
     <title>WhatsFood</title>
 
     <link rel="canonical" href="https://weslleymendes.com.br/whatsFood">
+    <!-- CSS para impressão -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/print.css" media="print" />
 
     <!-- Bootstrap core CSS -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +56,7 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
 </head>
 
 <body class="bg-light">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand text-white" href="#">WhatsFood</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,25 +64,25 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
             </button>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
-                  
+
                     <li class="nav-item">
                         <a class="nav-link " href="./"><i class="fa fa-book"></i> Cardápio</a>
-                    </li> 
-                   
+                    </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="./view/login"  >
-                         <i class="fa fa-user"></i> Login
+                        <a class="nav-link " href="./view/login">
+                            <i class="fa fa-user"></i> Login
                         </a>
-                        
+
                     </li>
                 </ul>
             </div>
         </div>
-</nav>
+    </nav>
 
 
     <div class="container">
-        <div class="py-5 text-center">
+        <div class="py-5 text-center printd">
             <img class="d-block mx-auto mb-4" src="./assets/img/icone2.png" alt="" width="350" height="200">
             <h2>WhatsFood</h2>
             <p class="lead">Para melhor lhe atender preencha o formulario a baixo: </p>
@@ -95,22 +98,20 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                 </ul>
             </div>
             <div class="col-md-8 order-md-1" id="alT">
-                <h4 class="mb-3">Preencha o formulário </h4>
-                <form class="needs-validation" novalidate action="#" method="POST">
-                  
+                <h4 class="mb-3 printd">Preencha o formulário </h4>
+                <form class="needs-validation" novalidate action="./controller/FinalizarPedido.php" method="POST">
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Nome</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Digite seu nome"
-                                value="" required>
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Digite seu nome" value="" required>
                             <div class="invalid-feedback">
                                 Nome é Obrigatório!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Sobrenome</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Digite seu sobrenome"
-                                value="" required>
+                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Digite seu sobrenome" value="" required>
                             <div class="invalid-feedback">
                                 Sobrenome é Obrigatório!
                             </div>
@@ -118,25 +119,25 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                     </div>
                     <div class=" mb-3">
                         <label for="celular">Celular</label>
-                        <input type="text" class="form-control" id="telefone" placeholder="(DDD) 9XXXX-XXXX" value=""
-                            required maxlength="15">
+                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(DDD) 9XXXX-XXXX" value="" required maxlength="15">
                         <div class="invalid-feedback">
                             Celular é Obrigatório!
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="address">Endereço</label>
-                        <input type="text" class="form-control" id="address"
-                            placeholder="Rua, bairro, lote, quadra e ponto de referência" required>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Rua, bairro, lote, quadra e ponto de referência" required>
+
                         <div class="invalid-feedback">
                             Por favor entre com o endereço pois é Obrigatório!
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-5 mb-3">
-                            <label for="country">Entrega ou retirada no local:</label>
+                            <label for="ER">Entrega ou retirada no local:</label>
 
-                            <select class="custom-select d-block w-100" id="country" required>
+                            <select class="custom-select d-block w-100" name="ER" id="ER" required>
                                 <option value="">Selecione</option>
                                 <option value="entrega">Entrega</option>
                                 <option value="retirada">Retirada no local</option>
@@ -151,7 +152,7 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                             <label for="local"><b>Bairros e taxas de entrega:</b></label>
                             <small class="text-muted">(Informe sua localidade para o calculo da taxa de
                                 entrega!)</small>
-                            <select class="custom-select d-block w-100" id="country" required>
+                            <select class="custom-select d-block w-100" name="local" id="local" required>
                                 <option value="">Selecione</option>
                                 <option value="pqp">Parque Paulista</option>
                                 <option value="newcamp">Nova Campinas</option>
@@ -162,7 +163,7 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                             </div>
                         </div>
                     </div>
-                
+
                     <hr class="mb-4">
                     <div class="row box">
                         <div class="album py-12 bg-light text-center" id="lanchecheck">
@@ -172,13 +173,13 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                                 ?>
                                     <li>
                                         <div class="col-md-12">
-                                            <input type="checkbox"  name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
+                                            <input type="checkbox" name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
                                             <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
-                                                <img src="./assets/upload/img/food/<?php echo $row['img'];?>" />
+                                                <img src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
                                                 <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P"> <?php echo formatMoney($row['valor'], 2); ?></b></p>
                                                 <p name="nome" id="cb<?php echo $row['id_food']; ?>N"><?php echo $row['nome']; ?></p>
                                                 <small name="desc" class="text-muted" id="cb<?php echo $row['id_food']; ?>D">
-                                                <?php echo $row['descricao'];?>
+                                                    <?php echo $row['descricao']; ?>
                                                 </small>
                                             </label>
                                         </div>
@@ -191,43 +192,55 @@ function formatMoney($number, $cents = 1) { // cents: 0=never, 1=if needed, 2=al
                     <h4 class="mb-3">Selecione a forma de pagamento:</h4>
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
-                            <input checked id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="credit">Crédito</label>
+                            <input value="credito" id="credito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="credito">Crédito</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="debit">Débito</label>
+                            <input value="debito" id="debito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="debito">Débito</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="paypal">Dinheiro</label>
+                            <input value="dinheiro" id="dinheiro" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="dinheiro">Dinheiro</label>
                         </div>
                     </div>
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar Pedido</button>
+                    <hr class="mb-4">
+                    <h4 class="mb-3">Já fez sua escolha de lanche?</h4>
+                    <div class="d-block my-3">
+                        
+                        <div class="custom-control custom-radio">
+                            <input value="sim" id="sim" name="radios" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="sim">Sim</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input value="nao" id="nao" name="radios" type="radio" class="custom-control-input" required>
+                            <label class="custom-control-label" for="nao">Não</label>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <button id="finalizar" class="btn btn-primary btn-lg btn-block" type="submit">Finalizar Pedido</button>
                 </form>
             </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2017-2018 Company Name</p>
+            <p class="mb-1">&copy; 2018-2020 WZSI</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
+                <li class="list-inline-item printd"><a href="#">Privacy</a></li>
+                <li class="list-inline-item printd"><a href="#">Terms</a></li>
+                <li class="list-inline-item printd"><a href="#">Support</a></li>
             </ul>
         </footer>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
-    
+
+
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./controller/PedidoController.js"></script>
+    <script src="./controller/printPedidos.js"></script>
     <script>
-       var tel = document.getElementById('telefone');
+        var tel = document.getElementById('telefone');
         tel.setAttribute("onkeypress", "mascara(this)");
 
         function mascara(telefone) {
