@@ -26,7 +26,7 @@ if ($linha) {
     header("Location:../view/adm/");
 }else {
   $_SESSION['msg'] = "E-mail ou senha não conferem!";
-  header("Location:../view/login.php");
+  header("Location:../view/login/");
 }
 
 

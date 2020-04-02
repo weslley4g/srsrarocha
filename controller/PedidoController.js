@@ -64,6 +64,7 @@ Number.prototype.toBrl = function() {
     return 'R$ ' + this.toFixed(2).replace('.', ',');
 };
 
+
 var TotalRS;
 
 // Arrays
@@ -74,7 +75,7 @@ var nomeArray = [];
 var idPedido = [];
 
 function getValues(elemento) {
-
+    PedidoViaPost();
     elementoID = elemento.id;
 
     // buscando os elementos no HTML
@@ -84,11 +85,13 @@ function getValues(elemento) {
     var nomeElement = document.getElementById(elemento.id + 'N');
 
     if (elemento.checked) {
+
         pedidosArray.push(pedidoElement.value);
         descArray.push(descElement.innerText);
         precoArray.push(precoElement.innerText);
         nomeArray.push(nomeElement.innerText);
         idPedido.push(elemento.id);
+
 
     } else {
         checkOutZerado(elementoID);
@@ -117,7 +120,7 @@ function getValues(elemento) {
 
 // Função de listar os pedidos feitos
 function listaDePedidos(elementoID) {
-
+    PedidoViaPost();
     var pedidoElement = document.getElementById(elementoID);
     var descElement = document.getElementById(elementoID + "D");
     var precoElement = document.getElementById(elementoID + "P");
@@ -204,6 +207,7 @@ function listaDePedidos(elementoID) {
 
 // função de calculo de valor
 function CalculoPedido() {
+    PedidoViaPost();
     var verifica = document.getElementById("Total");
     var valorTotal = pedidosArray.reduce(function(total, numero) {
         return total + parseFloat(numero);
@@ -232,16 +236,20 @@ function CalculoPedido() {
     var TotalText = document.createTextNode(parseFloat(valorTotal).toBrl());
     strongTotal.innerHTML = "";
     strongTotal.appendChild(TotalText);
+    PedidoViaPost();
+
 }
 
 // adicionar mais um pedido 
 function MaisPedidos(ID) {
+    PedidoViaPost();
     let pedidoElement = document.getElementById(ID);
 
 
     pedidosArray.push(pedidoElement.value);
     idPedido.push(ID);
     CalculoPedido();
+
 
     var text = document.createTextNode(qtdPedido);
     var qtdElement = document.getElementById(ID + "+");
@@ -278,6 +286,7 @@ function MaisPedidos(ID) {
 
 // diminuir a quantidade do pedido
 function MenosPedidos(ID) {
+    PedidoViaPost();
     var idPos = 0;
     idPos = idPedido.indexOf(ID);
     if (idPos >= 0) {
@@ -286,6 +295,7 @@ function MenosPedidos(ID) {
         precoArray.splice(idPos, 1);
         nomeArray.splice(idPos, 1);
         idPedido.splice(idPos, 1);
+
     }
 
     CalculoPedido();
@@ -385,54 +395,54 @@ function checkOutZerado(id) {
 // util
 
 
+
 var rad = document.getElementsByName('radios');
 var prev = null;
 for (var i = 0; i < rad.length; i++) {
     rad[i].onclick = function() {
-        PedidoViaPost(this);
+        simounao(this);
     }
 };
 
-function PedidoViaPost(e) {
-    var boxChecked = document.getElementById("listPedidos");
-
-    console.log(boxChecked.children[0].innerText);
-
-    var verdade = nomeArray.length;
-    console.log(nomeArray)
-
+function simounao(e) {
     if (e.value === "sim") {
-
+        var verdade = nomeArray.length;
         if (verdade > 0) {
-            var N = "";
-
-
-            for (let i = 0; i < idPedido.length; i++) {
-                var Q = boxChecked.children[i].children[0].children[0].innerHTML;
-                var Name = boxChecked.children[i].children[0].children[1].innerHTML;
-
-
-                N = N + ", " + Q + " " + Name;
-
-            }
-
-
-            console.log(N)
-
-
-            var tudo;
+            PedidoViaPost();
         } else {
             alert("você não escolheu um lanche, escolha o lanche clicando na imagem do lanche.");
             e.checked = false;
         }
-
-
     } else {
         alert("você não escolheu um lanche? " +
             " é facil só clicar na imagem do lanche " +
             " que desejar");
 
     }
-
-
 }
+
+
+
+
+function PedidoViaPost() {
+
+    boxChecked = document.getElementById("listPedidos");
+    // console.log(boxChecked.children);
+    var cont = idPedido.length;
+    if (cont > 0) {
+        var N = "";
+        for (let i = 0; i < cont; i++) {
+            if (boxChecked.children[i]) {
+                var Q = boxChecked.children[i].children[0].children[0].innerHTML;
+                var Name = boxChecked.children[i].children[0].children[1].innerHTML;
+                var preco = boxChecked.children[i].children[1].innerText;
+                console.log(boxChecked.children[i].children[1].innerText)
+
+                N = N + ", " + Q + " " + Name + " " + preco;
+            }
+        }
+        console.log(N)
+        var tudo;
+    }
+}
+setInterval(function() { PedidoViaPost(); }, 1000);
