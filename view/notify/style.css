@@ -1,0 +1,48 @@
+.some {
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+}
+
+.topStyle {
+    margin-top: 10%;
+}
+
+.baixoStyle {
+    margin-bottom: 10%;
+}
+
+.buttonElement {
+    display: flex;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none !important;
+    color: #fff !important;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 7px #999;
+}
+
+.buttonElement:hover {
+    background-color: #1083fd;
+}
+
+.buttonElement:active {
+    background-color: #007bff;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+    color: black !important;
+}
+
+.excluir {
+    background-color: rgba(158, 0, 0, 0.815);
+}
+
+.excluir:hover {
+    background-color: rgba(158, 0, 0, 0.966);
+}

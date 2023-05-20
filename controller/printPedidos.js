@@ -7,5 +7,5 @@ function reg() {
 }
 
 function printartela() {
-    window.print();
+   // window.print();
 }
