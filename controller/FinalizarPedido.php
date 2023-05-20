@@ -74,7 +74,7 @@ if ($pagamento === "Dinheiro") {
 // localizacao de origem para o maps 
 
 
-$urlWhats = "https://api.whatsapp.com/send?phone=5521974501001&text=*CLIENTE%3A*%20" .
+$urlWhats = "https://api.whatsapp.com/send?phone=5521982763455&text=*CLIENTE%3A*%20" .
   $primeiroNome .
   "%20" .
   $segundoNome .
