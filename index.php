@@ -394,7 +394,7 @@ function formatMoney($number, $cents = 1)
             </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2018-2023 WZSI</p>
+            <p class="mb-1">&copy; 2017-2023 WZSI</p>
             <ul class="list-inline">
                 <li class="list-inline-item printd"><a href="#">Privacy</a></li>
                 <li class="list-inline-item printd"><a href="#">Terms</a></li>
