@@ -22,12 +22,13 @@ function formatMoney($number, $cents = 1)
 ?>
 <!doctype html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="WhatsFood">
     <meta name="author" content="weslley">
-    
+
     <link rel="icon" href="./assets/img/img.png">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
     <title>WhatsFood</title>
@@ -42,6 +43,7 @@ function formatMoney($number, $cents = 1)
     <link href="./form-validation.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
 </head>
+
 <body class="bg-light">
     <div class="container">
 
@@ -60,14 +62,16 @@ function formatMoney($number, $cents = 1)
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName"><strong>* Nome:</strong></label>
-                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Digite seu nome" value="" required>
+                            <input type="text" class="form-control" name="firstName" id="firstName"
+                                placeholder="Digite seu nome" value="" required>
                             <div class="invalid-feedback">
                                 Nome é Obrigatório!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName"><strong>* Sobrenome:</strong></label>
-                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Digite seu sobrenome" value="" required>
+                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                placeholder="Digite seu sobrenome" value="" required>
                             <div class="invalid-feedback">
                                 Sobrenome é Obrigatório!
                             </div>
@@ -76,7 +80,8 @@ function formatMoney($number, $cents = 1)
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="celular"><strong>* Celular:</strong></label>
-                            <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="(DD) XXXXX-XXXX" maxlength="15" required>
+                            <input type="tel" class="form-control" name="telefone" id="telefone"
+                                placeholder="(DD) XXXXX-XXXX" maxlength="15" required>
                             <div class="invalid-feedback">
                                 Celular é Obrigatório!
                             </div>
@@ -97,9 +102,12 @@ function formatMoney($number, $cents = 1)
                         <div class="col-md-12 mb-3" id="Maps" hidden>
 
                             <label for="address"><strong>* CEP:</strong></label>
-                            <input type="tel" class="form-control" name="cep" id="cep" onkeypress="$(this).mask('00.000-000')" ontouchstart="$(this).mask('00.000-000')" placeholder="Digite apenas o seu cep! ex: 35271589">
+                            <input type="tel" class="form-control" name="cep" id="cep"
+                                onkeypress="$(this).mask('00.000-000')" ontouchstart="$(this).mask('00.000-000')"
+                                placeholder="Digite apenas o seu cep! ex: 35271589">
                             <label for="address"><strong>* Rua:</strong></label>
-                            <input value="" type="text" class="form-control" name="rua" id="rua" placeholder="Digite apenas o nome da sua rua! ex: Rua sao luiz">
+                            <input value="" type="text" class="form-control" name="rua" id="rua"
+                                placeholder="Digite apenas o nome da sua rua! ex: Rua sao luiz">
 
                             <div class="invalid-feedback">
                                 Por favor entre com o endereço pois é Obrigatório!
@@ -144,7 +152,8 @@ function formatMoney($number, $cents = 1)
                                         </div>
                                     </div>
                                     <!-- alerta de Sucesso -->
-                                    <div id="mapaAlertSuccess" class="alert alert-success fadeblock" role="alert" hidden>
+                                    <div id="mapaAlertSuccess" class="alert alert-success fadeblock" role="alert"
+                                        hidden>
                                         Sua <strong>LOCALIZAÇÃO</strong>foi compartilhada com sucesso!
                                     </div>
                                     <!-- alerta de error -->
@@ -164,109 +173,137 @@ function formatMoney($number, $cents = 1)
 
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Refeições</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Bebidas</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Sobremesas</a>
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                        href="#nav-home" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">Refeições</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                        href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                        aria-selected="false">Bebidas</a>
+                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                        href="#nav-contact" role="tab" aria-controls="nav-contact"
+                                        aria-selected="false">Sobremesas</a>
                                 </div>
                             </nav>
 
                             <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
                                     <ul class="col-md-12 order-md-1 ">
                                         <div class="row">
                                             <?php
                                             while ($row = $foodSelectRefeicoes->fetch_assoc()) {
                                             ?>
-                                                <div class="col-md-6 mb-2 col ">
-                                                    <li>
-                                                        <div class="col-md-12  ">
-                                                            <input type="checkbox" name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
-                                                            <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
+                                            <div class="col-md-6 mb-2 col ">
+                                                <li>
+                                                    <div class="col-md-12  ">
+                                                        <input type="checkbox" name="Pacote"
+                                                            id="cb<?php echo $row['id_food']; ?>"
+                                                            value="<?php echo $row['valor'] ?>" />
+                                                        <label for="cb<?php echo $row['id_food']; ?>"
+                                                            id="<?php echo $row['id_food']; ?>L" class="label">
 
-                                                                <img class="card-img-top" src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
+                                                            <img class="card-img-top"
+                                                                src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
 
-                                                                <p class="card-title" name="nome" id="cb<?php echo $row['id_food']; ?>N">
-                                                                    <strong><?php echo $row['nome']; ?></strong></p>
-                                                                <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
-                                                                        <?php echo formatMoney($row['valor'], 2); ?></b></p>
-                                                                <button type="button" class="coll descPedidos"><strong>Descrição</strong></button>
-                                                                <div class="conteudo alert alert-success fadeIn">
-                                                                    
+                                                            <p class="card-title" name="nome"
+                                                                id="cb<?php echo $row['id_food']; ?>N">
+                                                                <strong><?php echo $row['nome']; ?></strong>
+                                                            </p>
+                                                            <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
+                                                                    <?php echo formatMoney($row['valor'], 2); ?></b></p>
+                                                            <button type="button"
+                                                                class="coll descPedidos"><strong>Descrição</strong></button>
+                                                            <div class="conteudo alert alert-success fadeIn">
+
                                                                 <p name="desc" id="cb<?php echo $row['id_food']; ?>D">
-                                                                        <?php echo $row['descricao']; ?>
+                                                                    <?php echo $row['descricao']; ?>
                                                                 </p>
-                                                                </div>
-                                                            </label>
-                                                        </div>
-                                                    </li>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </li>
 
-                                                </div>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                     </ul>
                                 </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                    aria-labelledby="nav-profile-tab">
                                     <ul class="col-md-12 order-md-1 ">
                                         <div class="row">
                                             <?php
                                             while ($row = $foodSelectBebidas->fetch_assoc()) {
                                             ?>
-                                                <div class="col-md-6 mb-2 col ">
-                                                    <li>
-                                                        <div class="col-md-12  ">
-                                                            <input type="checkbox" name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
-                                                            <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
+                                            <div class="col-md-6 mb-2 col ">
+                                                <li>
+                                                    <div class="col-md-12  ">
+                                                        <input type="checkbox" name="Pacote"
+                                                            id="cb<?php echo $row['id_food']; ?>"
+                                                            value="<?php echo $row['valor'] ?>" />
+                                                        <label for="cb<?php echo $row['id_food']; ?>"
+                                                            id="<?php echo $row['id_food']; ?>L" class="label">
 
-                                                                <img class="card-img-top" src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
+                                                            <img class="card-img-top"
+                                                                src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
 
-                                                                <p class="card-title" name="nome" id="cb<?php echo $row['id_food']; ?>N">
-                                                                    <?php echo $row['nome']; ?></p>
-                                                                <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
-                                                                        <?php echo formatMoney($row['valor'], 2); ?></b></p>
-                                                                <button type="button" class="coll descPedidos"><strong>Descrição</strong></button>
-                                                                <div class="conteudo">
-                                                                    <p name="desc" id="cb<?php echo $row['id_food']; ?>D">
-                                                                        <?php echo $row['descricao']; ?>
-                                                                    </p>
-                                                                </div>
-                                                            </label>
-                                                        </div>
-                                                    </li>
+                                                            <p class="card-title" name="nome"
+                                                                id="cb<?php echo $row['id_food']; ?>N">
+                                                                <?php echo $row['nome']; ?></p>
+                                                            <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
+                                                                    <?php echo formatMoney($row['valor'], 2); ?></b></p>
+                                                            <button type="button"
+                                                                class="coll descPedidos"><strong>Descrição</strong></button>
+                                                            <div class="conteudo">
+                                                                <p name="desc" id="cb<?php echo $row['id_food']; ?>D">
+                                                                    <?php echo $row['descricao']; ?>
+                                                                </p>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </li>
 
-                                                </div>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                     </ul>
                                 </div>
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                    aria-labelledby="nav-contact-tab">
                                     <ul class="col-md-12 order-md-1 ">
                                         <div class="row">
                                             <?php
                                             while ($row = $foodSelectSobremesas->fetch_assoc()) {
                                             ?>
-                                                <div class="col-md-6 mb-2 col ">
-                                                    <li>
-                                                        <div class="col-md-12  ">
-                                                            <input type="checkbox" name="Pacote" id="cb<?php echo $row['id_food']; ?>" value="<?php echo $row['valor'] ?>" />
-                                                            <label for="cb<?php echo $row['id_food']; ?>" id="<?php echo $row['id_food']; ?>L" class="label">
+                                            <div class="col-md-6 mb-2 col ">
+                                                <li>
+                                                    <div class="col-md-12  ">
+                                                        <input type="checkbox" name="Pacote"
+                                                            id="cb<?php echo $row['id_food']; ?>"
+                                                            value="<?php echo $row['valor'] ?>" />
+                                                        <label for="cb<?php echo $row['id_food']; ?>"
+                                                            id="<?php echo $row['id_food']; ?>L" class="label">
 
-                                                                <img class="card-img-top" src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
+                                                            <img class="card-img-top"
+                                                                src="./assets/upload/img/food/<?php echo $row['img']; ?>" />
 
-                                                                <p class="card-title" name="nome" id="cb<?php echo $row['id_food']; ?>N">
-                                                                    <?php echo $row['nome']; ?></p>
-                                                                <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
-                                                                        <?php echo formatMoney($row['valor'], 2); ?></b></p>
-                                                                <button type="button" class="coll descPedidos"><strong>Descrição</strong></button>
-                                                                <div class="conteudo">
-                                                                    <p name="desc" id="cb<?php echo $row['id_food']; ?>D">
-                                                                        <?php echo $row['descricao']; ?>
-                                                                    </p>
-                                                                </div>
-                                                            </label>
-                                                        </div>
-                                                    </li>
+                                                            <p class="card-title" name="nome"
+                                                                id="cb<?php echo $row['id_food']; ?>N">
+                                                                <?php echo $row['nome']; ?></p>
+                                                            <p><b name="preco" id="cb<?php echo $row['id_food']; ?>P">
+                                                                    <?php echo formatMoney($row['valor'], 2); ?></b></p>
+                                                            <button type="button"
+                                                                class="coll descPedidos"><strong>Descrição</strong></button>
+                                                            <div class="conteudo">
+                                                                <p name="desc" id="cb<?php echo $row['id_food']; ?>D">
+                                                                    <?php echo $row['descricao']; ?>
+                                                                </p>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+                                                </li>
 
-                                                </div>
+                                            </div>
                                             <?php } ?>
                                         </div>
                                     </ul>
@@ -283,7 +320,8 @@ function formatMoney($number, $cents = 1)
                             <div class="col-md-12 mb-3">
                                 <label for="ObsL"><strong>Observação do(s) Pedido(s):</strong></label>
                                 <small class="text-muted">Fique atento a <strong>descrição!</strong></small>
-                                <textarea class="form-control" id="ObsL" name="ObsL" rows="4" placeholder="Descrição do Pedido."></textarea>
+                                <textarea class="form-control" id="ObsL" name="ObsL" rows="4"
+                                    placeholder="Descrição do Pedido."></textarea>
                             </div>
                             <br>
                         </div>
@@ -293,19 +331,23 @@ function formatMoney($number, $cents = 1)
                     <h4 class="mb-3 ">*Forma de pagamento:</h4>
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
-                            <input value="Credito" id="credito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input value="Credito" id="credito" name="paymentMethod" type="radio"
+                                class="custom-control-input" required>
                             <label class="custom-control-label" for="credito">Crédito</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input value="Debito" id="debito" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input value="Debito" id="debito" name="paymentMethod" type="radio"
+                                class="custom-control-input" required>
                             <label class="custom-control-label" for="debito">Débito</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input value="Dinheiro" id="dinheiro" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input value="Dinheiro" id="dinheiro" name="paymentMethod" type="radio"
+                                class="custom-control-input" required>
                             <label class="custom-control-label" for="dinheiro">Dinheiro</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input value="Pix" id="Pix" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input value="Pix" id="Pix" name="paymentMethod" type="radio" class="custom-control-input"
+                                required>
                             <label class="custom-control-label" for="Pix">PIX</label>
                         </div>
                     </div>
@@ -315,7 +357,9 @@ function formatMoney($number, $cents = 1)
                             <div class="input-group-prepend">
                                 <span class="input-group-text">R$</span>
                             </div>
-                            <input id="troco" name="troco" type="tel" class="form-control" onkeypress="$(this).mask('0#0.0#', {reverse: true})" ontouchstart="$(this).mask(' ##0.00', {reverse: true})">
+                            <input id="troco" name="troco" type="tel" class="form-control"
+                                onkeypress="$(this).mask('0#0.0#', {reverse: true})"
+                                ontouchstart="$(this).mask(' ##0.00', {reverse: true})">
                             <input type="text" name="calcTroco" id="calcTroco" hidden readonly>
                             <div class="invalid-feedback">
                                 Por favor informe o valor!
@@ -330,11 +374,13 @@ function formatMoney($number, $cents = 1)
                     <div class="d-block my-3">
 
                         <div class="custom-control custom-radio">
-                            <input value="sim" id="sim" name="radios" type="radio" class="custom-control-input" required>
+                            <input value="sim" id="sim" name="radios" type="radio" class="custom-control-input"
+                                required>
                             <label class="custom-control-label" for="sim">Sim</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input value="nao" id="nao" name="radios" type="radio" class="custom-control-input" required>
+                            <input value="nao" id="nao" name="radios" type="radio" class="custom-control-input"
+                                required>
                             <label class="custom-control-label" for="nao">Não</label>
                         </div>
                     </div>
@@ -348,7 +394,7 @@ function formatMoney($number, $cents = 1)
             </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2018-2020 WZSI</p>
+            <p class="mb-1">&copy; 2018-2023 WZSI</p>
             <ul class="list-inline">
                 <li class="list-inline-item printd"><a href="#">Privacy</a></li>
                 <li class="list-inline-item printd"><a href="#">Terms</a></li>
@@ -362,7 +408,8 @@ function formatMoney($number, $cents = 1)
         <p><a href="https://web-push-codelab.glitch.me//"></p>
         <pre><code class="js-subscription-json"></code></pre>
     </section>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
 
 
@@ -372,116 +419,116 @@ function formatMoney($number, $cents = 1)
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./controller/PedidoController.js"></script>
     <script type="text/javascript">
-        // subir para o topo
-        $(document).ready(function() {
-            //Verifica se a Janela está no topo
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 2300) {
-                    $('.scrollToTop').fadeIn();
-                } else {
-                    $('.scrollToTop').fadeOut();
-                }
-            });
-
-            //Onde a mágia acontece! rs
-            $('.scrollToTop').click(function() {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 1000);
-                return false;
-            });
-
-        });
-        //Barrar campos só com espaços ou menos de 3 letras sem contar espaços
-        $("#firstName").focusout(function() {
-            namef = document.getElementById('firstName')
-
-            if (namef.value.length === 0 || !namef.value.trim()) {
-                document.getElementById('firstName').value = ""
+    // subir para o topo
+    $(document).ready(function() {
+        //Verifica se a Janela está no topo
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 2300) {
+                $('.scrollToTop').fadeIn();
+            } else {
+                $('.scrollToTop').fadeOut();
             }
         });
-        $("#lastName").focusout(function() {
-            namel = document.getElementById('lastName')
 
-            if (namel.value.length === 0 || !namel.value.trim()) {
-                document.getElementById('lastName').value = ""
-            }
+        //Onde a mágia acontece! rs
+        $('.scrollToTop').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+            return false;
         });
-        // buscar endereco
-        $("#cep").focusout(function() {
-            //Início do Comando AJAX
-            $.ajax({
-                //O campo URL diz o caminho de onde virá os dados
-                //É importante concatenar o valor digitado no CEP
-                url: 'https://viacep.com.br/ws/' + $(this).val().replace(/[^\d]+/g, '') + '/json/',
-                //Aqui você deve preencher o tipo de dados que será lido,
-                //no caso, estamos lendo JSON.
-                dataType: 'json',
-                //SUCESS é referente a função que será executada caso
-                //ele consiga ler a fonte de dados com sucesso.
-                //O parâmetro dentro da função se refere ao nome da variável
-                //que você vai dar para ler esse objeto.
-                success: function(resposta) {
-                    //Agora basta definir os valores que você deseja preencher
-                    //automaticamente nos campos acima.
-                    $("#rua").val(resposta.logradouro);
-                    $("#local").val(resposta.bairro);
-                    //Vamos incluir para que o Número seja focado automaticamente
-                    //melhorando a experiência do usuário
-                    $("#adress").focus();
-                }
-            });
-        });
-        // mascara telefone
-        var tel = document.getElementById('telefone');
-        tel.onkeypress = function() {
-            mascara(this)
+
+    });
+    //Barrar campos só com espaços ou menos de 3 letras sem contar espaços
+    $("#firstName").focusout(function() {
+        namef = document.getElementById('firstName')
+
+        if (namef.value.length === 0 || !namef.value.trim()) {
+            document.getElementById('firstName').value = ""
         }
-        tel.ontouchstart = function() {
-            mascara(this)
+    });
+    $("#lastName").focusout(function() {
+        namel = document.getElementById('lastName')
+
+        if (namel.value.length === 0 || !namel.value.trim()) {
+            document.getElementById('lastName').value = ""
         }
+    });
+    // buscar endereco
+    $("#cep").focusout(function() {
+        //Início do Comando AJAX
+        $.ajax({
+            //O campo URL diz o caminho de onde virá os dados
+            //É importante concatenar o valor digitado no CEP
+            url: 'https://viacep.com.br/ws/' + $(this).val().replace(/[^\d]+/g, '') + '/json/',
+            //Aqui você deve preencher o tipo de dados que será lido,
+            //no caso, estamos lendo JSON.
+            dataType: 'json',
+            //SUCESS é referente a função que será executada caso
+            //ele consiga ler a fonte de dados com sucesso.
+            //O parâmetro dentro da função se refere ao nome da variável
+            //que você vai dar para ler esse objeto.
+            success: function(resposta) {
+                //Agora basta definir os valores que você deseja preencher
+                //automaticamente nos campos acima.
+                $("#rua").val(resposta.logradouro);
+                $("#local").val(resposta.bairro);
+                //Vamos incluir para que o Número seja focado automaticamente
+                //melhorando a experiência do usuário
+                $("#adress").focus();
+            }
+        });
+    });
+    // mascara telefone
+    var tel = document.getElementById('telefone');
+    tel.onkeypress = function() {
+        mascara(this)
+    }
+    tel.ontouchstart = function() {
+        mascara(this)
+    }
 
-        $("#telefone").focusout(function() {
-            var validtel = document.getElementById('telefone').value;
-            if (validtel == "(00) 00000-0000") {
-                document.getElementById('telefone').value = ''
-            }
-        })
-
-        function mascara(telefone) {
-
-            if (telefone.value.length == 0) {
-                telefone.value = '(' + telefone.value;
-            }
-            if (telefone.value.length == 3) {
-                telefone.value = telefone.value + ') ';
-            }
-            if (telefone.value.length == 10) {
-                telefone.value = telefone.value + '-';
-            }
+    $("#telefone").focusout(function() {
+        var validtel = document.getElementById('telefone').value;
+        if (validtel == "(00) 00000-0000") {
+            document.getElementById('telefone').value = ''
         }
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            'use strict';
+    })
 
-            window.addEventListener('load', function() {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
+    function mascara(telefone) {
 
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                            window.scrollTo(0, 0);
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
-            }, false);
-        })();
-        // mascara troco
+        if (telefone.value.length == 0) {
+            telefone.value = '(' + telefone.value;
+        }
+        if (telefone.value.length == 3) {
+            telefone.value = telefone.value + ') ';
+        }
+        if (telefone.value.length == 10) {
+            telefone.value = telefone.value + '-';
+        }
+    }
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        window.scrollTo(0, 0);
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    // mascara troco
     </script>
 </body>
 
