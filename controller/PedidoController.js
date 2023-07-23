@@ -562,7 +562,10 @@ function fixedmenu() {
   var menu = coordenadas.top;
   console.log(rodapeForm);
 
-  if (menu > 0 && topForm < 0 && rodapeForm > 0) {
+  if (
+    (menu > 0 && topForm < 0 && rodapeForm > 0) ||
+    (rodapeForm > 0 && topForm < 0)
+  ) {
     element.style.position = "fixed";
     element.style.top = "1.5%";
     element.style.zIndex = 2147483647;
