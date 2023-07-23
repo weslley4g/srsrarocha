@@ -546,3 +546,32 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+window.addEventListener("scroll", fixedmenu);
+function fixedmenu() {
+  const element = document.getElementById("nav-tab");
+  const elementTopoForm = document.getElementById("divisorFormTopo");
+  const elementrodapeForm = document.getElementById("divisorFormRodape");
+
+  var coordenadas = element.getBoundingClientRect();
+  var coordenadasTopoForm = elementTopoForm.getBoundingClientRect();
+  var coordenadasrodapeForm = elementrodapeForm.getBoundingClientRect();
+
+  var topForm = coordenadasTopoForm.top;
+  var rodapeForm = coordenadasrodapeForm.top;
+
+  var menu = coordenadas.top;
+  console.log(rodapeForm);
+
+  if (menu > 0 && topForm < 0 && rodapeForm > 0) {
+    element.style.position = "fixed";
+    element.style.top = "1.5%";
+    element.style.zIndex = 2147483647;
+
+    element.style.background = "#f8f9fabd";
+    element.style.borderRadius = "5px";
+
+    console.log("Aqui");
+  } else {
+    element.style.position = "unset";
+  }
+}
