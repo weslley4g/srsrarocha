@@ -167,7 +167,7 @@ function formatMoney($number, $cents = 1)
                     <div class="row">
                         <input type="text" id="lancheForm" name="lancheForm" hidden>
                     </div>
-                    <hr class="mb-4">
+                    <hr class="mb-4" id="divisorFormTopo">
                     <div class="row box">
                         <div class="album col-md-12 mb-2 text-center" id="lanchecheck">
 
@@ -309,6 +309,7 @@ function formatMoney($number, $cents = 1)
                                     </ul>
                                 </div>
                             </div>
+                            <hr class="mb-4" id="divisorFormRodape">
                             <div class="col-md-12 order-md-2 mb-4" id="InfoPedido">
                                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                                     <span class="text-muted"><strong>Total de pedido(s)</strong></span>
@@ -394,7 +395,7 @@ function formatMoney($number, $cents = 1)
             </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">&copy; 2017-2023 WZSI</p>
+            <p class="mb-1">&copy; 2017-<?php echo date("Y") ?> WZSI</p>
             <ul class="list-inline">
                 <li class="list-inline-item printd"><a href="#">Privacy</a></li>
                 <li class="list-inline-item printd"><a href="#">Terms</a></li>
